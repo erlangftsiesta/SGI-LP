@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produk & Layanan - Sentra Gadai Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      :root {
+        --primary: #0a6664;
+        --accent: #18dbd6;
+        --light-bg: #f8faf9;
+        --dark-text: #1a1a1a;
+        --light-text: #666666;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+        padding: 12px 32px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="bg-white" style="background-color: var(--light-bg)">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full top-0 z-50"
+      style="
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(10, 102, 100, 0.08);
+      "
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-2">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white"
+            style="background-color: var(--primary)"
+          >
+            S
+          </div>
+          <span class="font-bold text-lg" style="color: var(--primary)"
+            >Sentra Gadai</span
+          >
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="index.html"
+            class="text-sm font-500 hover:text-opacity-80"
+            style="color: var(--light-text)"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            class="text-sm font-500 hover:text-opacity-80"
+            style="color: var(--light-text)"
+            >Tentang Kami</a
+          >
+          <a
+            href="produk.html"
+            class="text-sm font-500"
+            style="color: var(--primary)"
+            >Produk & Layanan</a
+          >
+          <a
+            href="berita.html"
+            class="text-sm font-500 hover:text-opacity-80"
+            style="color: var(--light-text)"
+            >Berita</a
+          >
+          <a href="kontak.html" class="btn-primary text-xs">Hubungi Kami</a>
+        </div>
+
+        <button class="md:hidden" style="color: var(--primary)">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="pt-32 pb-20 px-6"
+      style="
+        background: linear-gradient(135deg, var(--light-bg) 0%, white 100%);
+      "
+    >
+      <div class="max-w-7xl mx-auto">
+        <h1
+          class="text-5xl md:text-6xl font-bold mb-6"
+          style="color: var(--dark-text)"
+        >
+          Produk & <span style="color: var(--primary)">Layanan</span>
+        </h1>
+        <p class="text-xl" style="color: var(--light-text); max-width: 600px">
+          Kami menyediakan layanan gadai lengkap untuk berbagai jenis barang
+          berharga dengan penilaian yang adil dan proses yang transparan.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto space-y-20">
+        <!-- Gadai Emas -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div
+            class="rounded-2xl overflow-hidden"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--accent)
+              );
+              height: 400px;
+            "
+          >
+            <div class="w-full h-full flex items-center justify-center">
+              <svg
+                class="w-48 h-48 text-white opacity-30"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M8.433 7.418c.155-.1.388-.1.498 0l.306.309a.75.75 0 11-1.06 1.06l-.306-.309a.75.75 0 010-1.06zM14.991 6.671a.75.75 0 10-1.06-1.06l-.305.305a.75.75 0 001.06 1.06l.305-.305zM4.426 13.829l1.06 1.06a1.5 1.5 0 102.121-2.12l-1.06-1.06a.75.75 0 10-1.06 1.06zM18.184 5.25l-1.06-1.06a1.5 1.5 0 00-2.121 2.121l1.06 1.06a.75.75 0 101.06-1.06z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold mb-6" style="color: var(--dark-text)">
+              Gadai <span style="color: var(--primary)">Emas</span>
+            </h2>
+            <p
+              style="
+                color: var(--light-text);
+                line-height: 1.8;
+                margin-bottom: 1rem;
+              "
+            >
+              Gadaikan perhiasan emas Anda dengan mudah. Kami memiliki ahli
+              bersertifikat internasional untuk menilai keaslian dan kualitas
+              emas Anda.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4" style="color: var(--primary)">
+              Keunggulan Gadai Emas Kami:
+            </h3>
+            <ul class="space-y-3 mb-8">
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Penilaian harga emas terkini dan kompetitif</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Proses cepat tanpa dokumen rumit</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Dana tunai hingga Rp 100 juta</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Asurance penuh untuk barang Anda</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Bunga kompetitif hanya 5% per 2 minggu</span
+                >
+              </li>
+            </ul>
+
+            <button class="btn-primary">Ajukan Gadai Emas Sekarang</button>
+          </div>
+        </div>
+
+        <!-- Gadai Handphone -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1">
+            <h2 class="text-4xl font-bold mb-6" style="color: var(--dark-text)">
+              Gadai <span style="color: var(--primary)">Handphone</span>
+            </h2>
+            <p
+              style="
+                color: var(--light-text);
+                line-height: 1.8;
+                margin-bottom: 1rem;
+              "
+            >
+              Butuh uang tunai? Gadaikan smartphone atau gadget Anda dengan
+              aman. Tim teknisi kami akan memeriksa kondisi device Anda secara
+              profesional.
+            </p>
+
+            <h3 class="text-xl font-bold mb-4" style="color: var(--primary)">
+              Keunggulan Gadai Handphone Kami:
+            </h3>
+            <ul class="space-y-3 mb-8">
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Pemeriksaan detail oleh teknisi berpengalaman</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Harga penilaian paling kompetitif</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Pencairan dana kurang dari 10 menit</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Perlakuan aman dengan asuransi penuh</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span style="color: var(--accent)">✓</span>
+                <span style="color: var(--light-text)"
+                  >Proses pembayaran bunga yang transparan</span
+                >
+              </li>
+            </ul>
+
+            <button class="btn-primary">Ajukan Gadai Handphone Sekarang</button>
+          </div>
+
+          <div
+            class="order-1 md:order-2 rounded-2xl overflow-hidden"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--accent)
+              );
+              height: 400px;
+            "
+          >
+            <div class="w-full h-full flex items-center justify-center">
+              <svg
+                class="w-48 h-48 text-white opacity-30"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-20 px-6" style="background-color: var(--light-bg)">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4" style="color: var(--dark-text)">
+            Proses <span style="color: var(--primary)">Gadai</span> Kami
+          </h2>
+          <p class="text-lg" style="color: var(--light-text)">
+            4 langkah mudah untuk mendapatkan dana tunai Anda
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+          <div
+            class="relative p-8 rounded-xl"
+            style="background: white; border: 2px solid var(--accent)"
+          >
+            <div
+              class="absolute -top-4 -left-4 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white"
+              style="background-color: var(--primary)"
+            >
+              1
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: var(--primary)">
+              Kunjungi Kantor
+            </h3>
+            <p style="color: var(--light-text); line-height: 1.6">
+              Datang ke kantor Sentra Gadai terdekat dengan membawa barang yang
+              akan digadaikan.
+            </p>
+          </div>
+
+          <div
+            class="relative p-8 rounded-xl"
+            style="background: white; border: 2px solid var(--accent)"
+          >
+            <div
+              class="absolute -top-4 -left-4 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white"
+              style="background-color: var(--primary)"
+            >
+              2
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: var(--primary)">
+              Penilaian
+            </h3>
+            <p style="color: var(--light-text); line-height: 1.6">
+              Tim expert kami akan menilai barang Anda dengan profesional dan
+              memberikan harga terbaik.
+            </p>
+          </div>
+
+          <div
+            class="relative p-8 rounded-xl"
+            style="background: white; border: 2px solid var(--accent)"
+          >
+            <div
+              class="absolute -top-4 -left-4 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white"
+              style="background-color: var(--primary)"
+            >
+              3
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: var(--primary)">
+              Persetujuan
+            </h3>
+            <p style="color: var(--light-text); line-height: 1.6">
+              Setujui nilai taksir dan tanda kontrak gadai dengan jelas dan
+              transparan.
+            </p>
+          </div>
+
+          <div
+            class="relative p-8 rounded-xl"
+            style="background: white; border: 2px solid var(--accent)"
+          >
+            <div
+              class="absolute -top-4 -left-4 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white"
+              style="background-color: var(--primary)"
+            >
+              4
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: var(--primary)">
+              Dana Cair
+            </h3>
+            <p style="color: var(--light-text); line-height: 1.6">
+              Terima dana tunai langsung ke tangan Anda dalam hitungan menit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-16" style="background-color: var(--dark-text)">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div
+              class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white"
+              style="background-color: var(--primary)"
+            >
+              S
+            </div>
+            <span class="font-bold text-white">Sentra Gadai</span>
+          </div>
+          <p class="text-gray-400 text-sm">
+            Solusi gadai terpercaya untuk kebutuhan finansial Anda dengan
+            layanan profesional dan aman.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Menu Utama</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>
+              <a href="index.html" class="hover:text-white transition"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a href="tentang.html" class="hover:text-white transition"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a href="produk.html" class="hover:text-white transition"
+                >Produk & Layanan</a
+              >
+            </li>
+            <li>
+              <a href="berita.html" class="hover:text-white transition"
+                >Berita</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Layanan</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>
+              <a href="produk.html" class="hover:text-white transition"
+                >Gadai Emas</a
+              >
+            </li>
+            <li>
+              <a href="produk.html" class="hover:text-white transition"
+                >Gadai Handphone</a
+              >
+            </li>
+            <li>
+              <a href="tentang.html" class="hover:text-white transition"
+                >Syarat & Ketentuan</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Hubungi Kami</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>
+              Telepon:
+              <a href="tel:+621234567890" class="hover:text-white transition"
+                >+62 123 4567 890</a
+              >
+            </li>
+            <li>
+              Email:
+              <a
+                href="mailto:info@sentra-gadai.com"
+                class="hover:text-white transition"
+                >info@sentra-gadai.com</a
+              >
+            </li>
+            <li>Jam Operasional: Senin - Sabtu 09:00 - 18:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8">
+        <p class="text-center text-gray-500 text-sm">
+          &copy; 2025 Sentra Gadai Indonesia. Semua hak dilindungi.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

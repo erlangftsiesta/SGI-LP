@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berita - Sentra Gadai Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      :root {
+        --primary: #0a6664;
+        --accent: #18dbd6;
+        --light-bg: #f8faf9;
+        --dark-text: #1a1a1a;
+        --light-text: #666666;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+        padding: 12px 32px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="bg-white" style="background-color: var(--light-bg)">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full top-0 z-50"
+      style="
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(10, 102, 100, 0.08);
+      "
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-2">
+          <div
+            class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white"
+            style="background-color: var(--primary)"
+          >
+            S
+          </div>
+          <span class="font-bold text-lg" style="color: var(--primary)"
+            >Sentra Gadai</span
+          >
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="index.html"
+            class="text-sm font-500 hover:text-opacity-80"
+            style="color: var(--light-text)"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            class="text-sm font-500 hover:text-opacity-80"
+            style="color: var(--light-text)"
+            >Tentang Kami</a
+          >
+          <a
+            href="produk.html"
+            class="text-sm font-500 hover:text-opacity-80"
+            style="color: var(--light-text)"
+            >Produk & Layanan</a
+          >
+          <a
+            href="berita.html"
+            class="text-sm font-500"
+            style="color: var(--primary)"
+            >Berita</a
+          >
+          <a href="kontak.html" class="btn-primary text-xs">Hubungi Kami</a>
+        </div>
+
+        <button class="md:hidden" style="color: var(--primary)">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="pt-32 pb-20 px-6"
+      style="
+        background: linear-gradient(135deg, var(--light-bg) 0%, white 100%);
+      "
+    >
+      <div class="max-w-7xl mx-auto">
+        <h1
+          class="text-5xl md:text-6xl font-bold mb-6"
+          style="color: var(--dark-text)"
+        >
+          Berita & <span style="color: var(--primary)">Artikel</span>
+        </h1>
+        <p class="text-xl" style="color: var(--light-text); max-width: 600px">
+          Dapatkan informasi terbaru dan tips mengenai gadai, emas, dan
+          manajemen finansial pribadi.
+        </p>
+      </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- News Item 1 -->
+          <div
+            class="rounded-xl overflow-hidden"
+            style="
+              background: white;
+              border: 1px solid rgba(10, 102, 100, 0.1);
+              transition: all 0.3s ease;
+            "
+            onmouseover="this.style.boxShadow='0 10px 30px rgba(10, 102, 100, 0.15)'; this.style.transform='translateY(-4px)'"
+            onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'"
+          >
+            <div
+              class="h-48 rounded-t-xl"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary),
+                  var(--accent)
+                );
+              "
+            >
+              <div class="w-full h-full flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-white opacity-30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-sm mb-2" style="color: var(--accent)">
+                25 Desember 2024
+              </p>
+              <h3
+                class="text-xl font-bold mb-3"
+                style="color: var(--dark-text)"
+              >
+                Tips Gadai Emas yang Aman dan Menguntungkan
+              </h3>
+              <p
+                style="
+                  color: var(--light-text);
+                  line-height: 1.6;
+                  margin-bottom: 4rem;
+                "
+              >
+                Pelajari tips dan trik untuk mendapatkan nilai terbaik saat
+                menggadaikan perhiasan emas Anda dengan aman.
+              </p>
+              <a href="#" class="text-sm font-600" style="color: var(--primary)"
+                >Baca Selengkapnya →</a
+              >
+            </div>
+          </div>
+
+          <!-- News Item 2 -->
+          <div
+            class="rounded-xl overflow-hidden"
+            style="
+              background: white;
+              border: 1px solid rgba(10, 102, 100, 0.1);
+              transition: all 0.3s ease;
+            "
+            onmouseover="this.style.boxShadow='0 10px 30px rgba(10, 102, 100, 0.15)'; this.style.transform='translateY(-4px)'"
+            onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'"
+          >
+            <div
+              class="h-48 rounded-t-xl"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary),
+                  var(--accent)
+                );
+              "
+            >
+              <div class="w-full h-full flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-white opacity-30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-sm mb-2" style="color: var(--accent)">
+                20 Desember 2024
+              </p>
+              <h3
+                class="text-xl font-bold mb-3"
+                style="color: var(--dark-text)"
+              >
+                Proses Gadai Handphone: Semuanya Transparan
+              </h3>
+              <p
+                style="
+                  color: var(--light-text);
+                  line-height: 1.6;
+                  margin-bottom: 4rem;
+                "
+              >
+                Pahami proses gadai handphone kami yang transparan dan cepat
+                tanpa biaya tersembunyi.
+              </p>
+              <a href="#" class="text-sm font-600" style="color: var(--primary)"
+                >Baca Selengkapnya →</a
+              >
+            </div>
+          </div>
+
+          <!-- News Item 3 -->
+          <div
+            class="rounded-xl overflow-hidden"
+            style="
+              background: white;
+              border: 1px solid rgba(10, 102, 100, 0.1);
+              transition: all 0.3s ease;
+            "
+            onmouseover="this.style.boxShadow='0 10px 30px rgba(10, 102, 100, 0.15)'; this.style.transform='translateY(-4px)'"
+            onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'"
+          >
+            <div
+              class="h-48 rounded-t-xl"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary),
+                  var(--accent)
+                );
+              "
+            >
+              <div class="w-full h-full flex items-center justify-center">
+                <svg
+                  class="w-24 h-24 text-white opacity-30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M8.433 7.418c.155-.1.388-.1.498 0l.306.309a.75.75 0 11-1.06 1.06l-.306-.309a.75.75 0 010-1.06zM14.991 6.671a.75.75 0 10-1.06-1.06l-.305.305a.75.75 0 001.06 1.06l.305-.305zM4.426 13.829l1.06 1.06a1.5 1.5 0 102.121-2.12l-1.06-1.06a.75.75 0 10-1.06 1.06zM18.184 5.25l-1.06-1.06a1.5 1.5 0 00-2.121 2.121l1.06 1.06a.75.75 0 101.06-1.06z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-sm mb-2" style="color: var(--accent)">
+                15 Desember 2024
+              </p>
+              <h3
+                class="text-xl font-bold mb-3"
+                style="color: var(--dark-text)"
+              >
+                Pentingnya Asuransi Barang Gadai
+              </h3>
+              <p
+                style="
+                  color: var(--light-text);
+                  line-height: 1.6;
+                  margin-bottom: 4rem;
+                "
+              >
+                Ketahui mengapa asuransi barang gadai adalah investasi penting
+                untuk melindungi barang berharga Anda.
+              </p>
+              <a href="#" class="text-sm font-600" style="color: var(--primary)"
+                >Baca Selengkapnya →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-16" style="background-color: var(--dark-text)">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div
+              class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white"
+              style="background-color: var(--primary)"
+            >
+              S
+            </div>
+            <span class="font-bold text-white">Sentra Gadai</span>
+          </div>
+          <p class="text-gray-400 text-sm">
+            Solusi gadai terpercaya untuk kebutuhan finansial Anda dengan
+            layanan profesional dan aman.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Menu Utama</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>
+              <a href="index.html" class="hover:text-white transition"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a href="tentang.html" class="hover:text-white transition"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a href="produk.html" class="hover:text-white transition"
+                >Produk & Layanan</a
+              >
+            </li>
+            <li>
+              <a href="berita.html" class="hover:text-white transition"
+                >Berita</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Layanan</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>
+              <a href="produk.html" class="hover:text-white transition"
+                >Gadai Emas</a
+              >
+            </li>
+            <li>
+              <a href="produk.html" class="hover:text-white transition"
+                >Gadai Handphone</a
+              >
+            </li>
+            <li>
+              <a href="tentang.html" class="hover:text-white transition"
+                >Syarat & Ketentuan</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-4">Hubungi Kami</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>
+              Telepon:
+              <a href="tel:+621234567890" class="hover:text-white transition"
+                >+62 123 4567 890</a
+              >
+            </li>
+            <li>
+              Email:
+              <a
+                href="mailto:info@sentra-gadai.com"
+                class="hover:text-white transition"
+                >info@sentra-gadai.com</a
+              >
+            </li>
+            <li>Jam Operasional: Senin - Sabtu 09:00 - 18:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8">
+        <p class="text-center text-gray-500 text-sm">
+          &copy; 2025 Sentra Gadai Indonesia. Semua hak dilindungi.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
