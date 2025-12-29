@@ -37,12 +37,53 @@
         background-color: var(--accent);
         transform: translateY(-2px);
       }
+
+      /* Added styles for mobile navbar and animations */
+      [data-navbar-menu] {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid rgba(10, 102, 100, 0.1);
+        padding: 1rem;
+      }
+
+      [data-navbar-menu].show {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      [data-animate].animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        [data-navbar-menu] {
+          position: fixed;
+          top: 60px;
+          bottom: 0;
+          flex-direction: column;
+          width: 100%;
+          border-radius: 0;
+        }
+      }
     </style>
   </head>
   <body class="bg-white" style="background-color: var(--light-bg)">
     <!-- Navigation -->
     <nav
       class="fixed w-full top-0 z-50"
+      data-navbar
       style="
         background-color: white;
         box-shadow: 0 2px 8px rgba(10, 102, 100, 0.08);
@@ -66,32 +107,43 @@
         <div class="hidden md:flex items-center gap-8">
           <a
             href="index.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Beranda</a
           >
           <a
             href="tentang.html"
+            data-navbar-link
             class="text-sm font-500"
             style="color: var(--primary)"
             >Tentang Kami</a
           >
           <a
             href="produk.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Produk & Layanan</a
           >
           <a
             href="berita.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Berita</a
           >
-          <a href="kontak.html" class="btn-primary text-xs">Hubungi Kami</a>
+          <a href="kontak.html" class="btn-primary text-xs" data-ripple
+            >Hubungi Kami</a
+          >
         </div>
 
-        <button class="md:hidden" style="color: var(--primary)">
+        <button
+          class="md:hidden"
+          style="color: var(--primary)"
+          data-navbar-toggle
+          aria-expanded="false"
+        >
           <svg
             class="w-6 h-6"
             fill="none"
@@ -106,6 +158,41 @@
             ></path>
           </svg>
         </button>
+
+        <!-- Added mobile menu -->
+        <div data-navbar-menu class="md:hidden">
+          <a
+            href="index.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--primary)"
+            >Tentang Kami</a
+          >
+          <a
+            href="produk.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Produk & Layanan</a
+          >
+          <a
+            href="berita.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Berita</a
+          >
+          <a href="kontak.html" class="btn-primary text-xs inline-block"
+            >Hubungi Kami</a
+          >
+        </div>
       </div>
     </nav>
 
@@ -119,11 +206,16 @@
       <div class="max-w-7xl mx-auto">
         <h1
           class="text-5xl md:text-6xl font-bold mb-6"
+          data-animate
           style="color: var(--dark-text)"
         >
           Tentang <span style="color: var(--primary)">Sentra Gadai</span>
         </h1>
-        <p class="text-xl" style="color: var(--light-text); max-width: 600px">
+        <p
+          class="text-xl"
+          data-animate
+          style="color: var(--light-text); max-width: 600px"
+        >
           Komitmen kami adalah memberikan layanan gadai terbaik dengan standar
           internasional dan kepercayaan pelanggan sebagai prioritas utama.
         </p>
@@ -134,7 +226,7 @@
     <section class="py-20 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+          <div data-animate>
             <h2 class="text-4xl font-bold mb-6" style="color: var(--dark-text)">
               Perjalanan <span style="color: var(--primary)">Kami</span>
             </h2>
@@ -170,6 +262,7 @@
 
           <div
             class="rounded-2xl overflow-hidden"
+            data-animate
             style="
               background: linear-gradient(
                 135deg,
@@ -198,7 +291,7 @@
     <!-- Values -->
     <section class="py-20 px-6" style="background-color: var(--light-bg)">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-animate>
           <h2 class="text-4xl font-bold mb-4" style="color: var(--dark-text)">
             Nilai-Nilai Kami
           </h2>
@@ -208,7 +301,7 @@
         </div>
 
         <div class="grid md:grid-cols-4 gap-8">
-          <div class="text-center p-8">
+          <div class="text-center p-8" data-animate>
             <div
               class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
               style="background-color: var(--accent)"
@@ -230,7 +323,7 @@
             </p>
           </div>
 
-          <div class="text-center p-8">
+          <div class="text-center p-8" data-animate>
             <div
               class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
               style="background-color: var(--accent)"
@@ -248,7 +341,7 @@
             </p>
           </div>
 
-          <div class="text-center p-8">
+          <div class="text-center p-8" data-animate>
             <div
               class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
               style="background-color: var(--accent)"
@@ -271,7 +364,7 @@
             </p>
           </div>
 
-          <div class="text-center p-8">
+          <div class="text-center p-8" data-animate>
             <div
               class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
               style="background-color: var(--accent)"
@@ -303,19 +396,21 @@
     >
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-4 gap-8 text-center">
-          <div>
-            <h3 class="text-4xl font-bold text-white mb-2">50K+</h3>
+          <div data-animate>
+            <h3 class="text-4xl font-bold text-white mb-2" data-counter="50000">
+              50K+
+            </h3>
             <p class="text-white opacity-90">Pelanggan Puas</p>
           </div>
-          <div>
+          <div data-animate>
             <h3 class="text-4xl font-bold text-white mb-2">15 Tahun</h3>
             <p class="text-white opacity-90">Pengalaman Melayani</p>
           </div>
-          <div>
+          <div data-animate>
             <h3 class="text-4xl font-bold text-white mb-2">Rp 500M+</h3>
             <p class="text-white opacity-90">Dana Dikucurkan</p>
           </div>
-          <div>
+          <div data-animate>
             <h3 class="text-4xl font-bold text-white mb-2">24/7</h3>
             <p class="text-white opacity-90">Layanan Konsultasi</p>
           </div>
@@ -417,5 +512,10 @@
         </p>
       </div>
     </footer>
+
+    <!-- Added script references -->
+    <script src="public/js/navbar.js"></script>
+    <script src="public/js/animations.js"></script>
+    <script src="public/js/smooth-transitions.js"></script>
   </body>
 </html>

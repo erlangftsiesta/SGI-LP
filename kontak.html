@@ -54,12 +54,53 @@
         border-color: var(--primary) !important;
         box-shadow: 0 0 0 3px rgba(24, 219, 214, 0.1) !important;
       }
+
+      /* Added styles for mobile navbar and animations */
+      [data-navbar-menu] {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid rgba(10, 102, 100, 0.1);
+        padding: 1rem;
+      }
+
+      [data-navbar-menu].show {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      [data-animate].animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        [data-navbar-menu] {
+          position: fixed;
+          top: 60px;
+          bottom: 0;
+          flex-direction: column;
+          width: 100%;
+          border-radius: 0;
+        }
+      }
     </style>
   </head>
   <body class="bg-white" style="background-color: var(--light-bg)">
     <!-- Navigation -->
     <nav
       class="fixed w-full top-0 z-50"
+      data-navbar
       style="
         background-color: white;
         box-shadow: 0 2px 8px rgba(10, 102, 100, 0.08);
@@ -83,32 +124,43 @@
         <div class="hidden md:flex items-center gap-8">
           <a
             href="index.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Beranda</a
           >
           <a
             href="tentang.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Tentang Kami</a
           >
           <a
             href="produk.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Produk & Layanan</a
           >
           <a
             href="berita.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Berita</a
           >
-          <a href="kontak.html" class="btn-primary text-xs">Hubungi Kami</a>
+          <a href="kontak.html" class="btn-primary text-xs" data-ripple
+            >Hubungi Kami</a
+          >
         </div>
 
-        <button class="md:hidden" style="color: var(--primary)">
+        <button
+          class="md:hidden"
+          style="color: var(--primary)"
+          data-navbar-toggle
+          aria-expanded="false"
+        >
           <svg
             class="w-6 h-6"
             fill="none"
@@ -123,6 +175,41 @@
             ></path>
           </svg>
         </button>
+
+        <!-- Added mobile menu -->
+        <div data-navbar-menu class="md:hidden">
+          <a
+            href="index.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Tentang Kami</a
+          >
+          <a
+            href="produk.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Produk & Layanan</a
+          >
+          <a
+            href="berita.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Berita</a
+          >
+          <a href="kontak.html" class="btn-primary text-xs inline-block"
+            >Hubungi Kami</a
+          >
+        </div>
       </div>
     </nav>
 
@@ -136,11 +223,16 @@
       <div class="max-w-7xl mx-auto">
         <h1
           class="text-5xl md:text-6xl font-bold mb-6"
+          data-animate
           style="color: var(--dark-text)"
         >
           Hubungi <span style="color: var(--primary)">Kami</span>
         </h1>
-        <p class="text-xl" style="color: var(--light-text); max-width: 600px">
+        <p
+          class="text-xl"
+          data-animate
+          style="color: var(--light-text); max-width: 600px"
+        >
           Tim customer service kami siap membantu Anda dengan respons cepat dan
           solusi terbaik.
         </p>
@@ -154,6 +246,7 @@
           <!-- Contact Info 1 -->
           <div
             class="p-8 rounded-xl text-center"
+            data-animate
             style="background: white; border: 1px solid rgba(10, 102, 100, 0.1)"
           >
             <div
@@ -180,6 +273,7 @@
           <!-- Contact Info 2 -->
           <div
             class="p-8 rounded-xl text-center"
+            data-animate
             style="background: white; border: 1px solid rgba(10, 102, 100, 0.1)"
           >
             <div
@@ -209,6 +303,7 @@
           <!-- Contact Info 3 -->
           <div
             class="p-8 rounded-xl text-center"
+            data-animate
             style="background: white; border: 1px solid rgba(10, 102, 100, 0.1)"
           >
             <div
@@ -237,18 +332,35 @@
 
         <!-- Contact Form -->
         <div class="grid md:grid-cols-2 gap-12">
-          <div>
+          <div data-animate>
             <h2 class="text-3xl font-bold mb-6" style="color: var(--dark-text)">
               Kirim Pesan Kepada Kami
             </h2>
-            <form class="space-y-6">
+            <div
+              data-form-error
+              style="
+                display: none;
+                color: #ef4444;
+                padding: 12px;
+                border-radius: 6px;
+                background-color: rgba(239, 68, 68, 0.1);
+                margin-bottom: 16px;
+                list-style: none;
+              "
+            ></div>
+            <form class="space-y-6" data-contact-form>
               <div>
                 <label
                   class="block text-sm font-600 mb-2"
                   style="color: var(--dark-text)"
                   >Nama Lengkap</label
                 >
-                <input type="text" placeholder="Masukkan nama Anda" required />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Masukkan nama Anda"
+                  required
+                />
               </div>
 
               <div>
@@ -259,6 +371,7 @@
                 >
                 <input
                   type="email"
+                  name="email"
                   placeholder="Masukkan email Anda"
                   required
                 />
@@ -272,6 +385,7 @@
                 >
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Masukkan nomor telepon Anda"
                   required
                 />
@@ -284,19 +398,20 @@
                   >Pesan</label
                 >
                 <textarea
+                  name="message"
                   placeholder="Tuliskan pesan Anda di sini..."
                   rows="5"
                   required
                 ></textarea>
               </div>
 
-              <button type="submit" class="btn-primary w-full">
+              <button type="submit" class="btn-primary w-full" data-ripple>
                 Kirim Pesan
               </button>
             </form>
           </div>
 
-          <div>
+          <div data-animate>
             <h2 class="text-3xl font-bold mb-6" style="color: var(--dark-text)">
               Lokasi Kami
             </h2>
@@ -444,5 +559,11 @@
         </p>
       </div>
     </footer>
+
+    <!-- Added script references -->
+    <script src="public/js/navbar.js"></script>
+    <script src="public/js/animations.js"></script>
+    <script src="public/js/form-validation.js"></script>
+    <script src="public/js/smooth-transitions.js"></script>
   </body>
 </html>

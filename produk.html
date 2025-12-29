@@ -37,12 +37,53 @@
         background-color: var(--accent);
         transform: translateY(-2px);
       }
+
+      /* Added styles for mobile navbar and animations */
+      [data-navbar-menu] {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid rgba(10, 102, 100, 0.1);
+        padding: 1rem;
+      }
+
+      [data-navbar-menu].show {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      [data-animate].animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        [data-navbar-menu] {
+          position: fixed;
+          top: 60px;
+          bottom: 0;
+          flex-direction: column;
+          width: 100%;
+          border-radius: 0;
+        }
+      }
     </style>
   </head>
   <body class="bg-white" style="background-color: var(--light-bg)">
     <!-- Navigation -->
     <nav
       class="fixed w-full top-0 z-50"
+      data-navbar
       style="
         background-color: white;
         box-shadow: 0 2px 8px rgba(10, 102, 100, 0.08);
@@ -66,32 +107,43 @@
         <div class="hidden md:flex items-center gap-8">
           <a
             href="index.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Beranda</a
           >
           <a
             href="tentang.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Tentang Kami</a
           >
           <a
             href="produk.html"
+            data-navbar-link
             class="text-sm font-500"
             style="color: var(--primary)"
             >Produk & Layanan</a
           >
           <a
             href="berita.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Berita</a
           >
-          <a href="kontak.html" class="btn-primary text-xs">Hubungi Kami</a>
+          <a href="kontak.html" class="btn-primary text-xs" data-ripple
+            >Hubungi Kami</a
+          >
         </div>
 
-        <button class="md:hidden" style="color: var(--primary)">
+        <button
+          class="md:hidden"
+          style="color: var(--primary)"
+          data-navbar-toggle
+          aria-expanded="false"
+        >
           <svg
             class="w-6 h-6"
             fill="none"
@@ -106,6 +158,41 @@
             ></path>
           </svg>
         </button>
+
+        <!-- Added mobile menu -->
+        <div data-navbar-menu class="md:hidden">
+          <a
+            href="index.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Tentang Kami</a
+          >
+          <a
+            href="produk.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--primary)"
+            >Produk & Layanan</a
+          >
+          <a
+            href="berita.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Berita</a
+          >
+          <a href="kontak.html" class="btn-primary text-xs inline-block"
+            >Hubungi Kami</a
+          >
+        </div>
       </div>
     </nav>
 
@@ -119,11 +206,16 @@
       <div class="max-w-7xl mx-auto">
         <h1
           class="text-5xl md:text-6xl font-bold mb-6"
+          data-animate
           style="color: var(--dark-text)"
         >
           Produk & <span style="color: var(--primary)">Layanan</span>
         </h1>
-        <p class="text-xl" style="color: var(--light-text); max-width: 600px">
+        <p
+          class="text-xl"
+          data-animate
+          style="color: var(--light-text); max-width: 600px"
+        >
           Kami menyediakan layanan gadai lengkap untuk berbagai jenis barang
           berharga dengan penilaian yang adil dan proses yang transparan.
         </p>
@@ -137,6 +229,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div
             class="rounded-2xl overflow-hidden"
+            data-animate
             style="
               background: linear-gradient(
                 135deg,
@@ -159,7 +252,7 @@
             </div>
           </div>
 
-          <div>
+          <div data-animate>
             <h2 class="text-4xl font-bold mb-6" style="color: var(--dark-text)">
               Gadai <span style="color: var(--primary)">Emas</span>
             </h2>
@@ -211,13 +304,15 @@
               </li>
             </ul>
 
-            <button class="btn-primary">Ajukan Gadai Emas Sekarang</button>
+            <button class="btn-primary" data-ripple>
+              Ajukan Gadai Emas Sekarang
+            </button>
           </div>
         </div>
 
         <!-- Gadai Handphone -->
         <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="order-2 md:order-1">
+          <div class="order-2 md:order-1" data-animate>
             <h2 class="text-4xl font-bold mb-6" style="color: var(--dark-text)">
               Gadai <span style="color: var(--primary)">Handphone</span>
             </h2>
@@ -269,11 +364,14 @@
               </li>
             </ul>
 
-            <button class="btn-primary">Ajukan Gadai Handphone Sekarang</button>
+            <button class="btn-primary" data-ripple>
+              Ajukan Gadai Handphone Sekarang
+            </button>
           </div>
 
           <div
             class="order-1 md:order-2 rounded-2xl overflow-hidden"
+            data-animate
             style="
               background: linear-gradient(
                 135deg,
@@ -302,7 +400,7 @@
     <!-- Process -->
     <section class="py-20 px-6" style="background-color: var(--light-bg)">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-animate>
           <h2 class="text-4xl font-bold mb-4" style="color: var(--dark-text)">
             Proses <span style="color: var(--primary)">Gadai</span> Kami
           </h2>
@@ -314,6 +412,7 @@
         <div class="grid md:grid-cols-4 gap-6">
           <div
             class="relative p-8 rounded-xl"
+            data-animate
             style="background: white; border: 2px solid var(--accent)"
           >
             <div
@@ -333,6 +432,7 @@
 
           <div
             class="relative p-8 rounded-xl"
+            data-animate
             style="background: white; border: 2px solid var(--accent)"
           >
             <div
@@ -352,6 +452,7 @@
 
           <div
             class="relative p-8 rounded-xl"
+            data-animate
             style="background: white; border: 2px solid var(--accent)"
           >
             <div
@@ -371,6 +472,7 @@
 
           <div
             class="relative p-8 rounded-xl"
+            data-animate
             style="background: white; border: 2px solid var(--accent)"
           >
             <div
@@ -484,5 +586,10 @@
         </p>
       </div>
     </footer>
+
+    <!-- Added script references -->
+    <script src="public/js/navbar.js"></script>
+    <script src="public/js/animations.js"></script>
+    <script src="public/js/smooth-transitions.js"></script>
   </body>
 </html>

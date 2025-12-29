@@ -51,12 +51,74 @@
         background-color: var(--primary);
         color: white;
       }
+
+      /* Add styles for mobile navbar and animations */
+      [data-navbar-menu] {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid rgba(10, 102, 100, 0.1);
+        padding: 1rem;
+      }
+
+      [data-navbar-menu].show {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      [data-animate].animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        transform: scale(0);
+        animation: ripple-animation 0.6s ease-out;
+        pointer-events: none;
+      }
+
+      @keyframes ripple-animation {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+
+      .input-error {
+        border-color: #ef4444 !important;
+        background-color: rgba(239, 68, 68, 0.05) !important;
+      }
+
+      @media (max-width: 768px) {
+        [data-navbar-menu] {
+          position: fixed;
+          top: 60px;
+          bottom: 0;
+          flex-direction: column;
+          width: 100%;
+          border-radius: 0;
+        }
+      }
     </style>
   </head>
   <body class="bg-white" style="background-color: var(--light-bg)">
     <!-- Navigation -->
     <nav
       class="fixed w-full top-0 z-50"
+      data-navbar
       style="
         background-color: white;
         box-shadow: 0 2px 8px rgba(10, 102, 100, 0.08);
@@ -66,46 +128,58 @@
         class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
       >
         <div class="flex items-center gap-2">
-          <div
+          <!-- <div
             class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white"
             style="background-color: var(--primary)"
           >
             S
-          </div>
+          </div> -->
+          <img src="./public/images/SGI-LogoOnly.png" style="width: 4vh" />
           <span class="font-bold text-lg" style="color: var(--primary)"
-            >Sentra Gadai</span
+            >Sentra Gadai Indonesia</span
           >
         </div>
 
         <div class="hidden md:flex items-center gap-8">
           <a
             href="index.html"
+            data-navbar-link
             class="text-sm font-500"
             style="color: var(--primary)"
             >Beranda</a
           >
           <a
             href="tentang.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Tentang Kami</a
           >
           <a
             href="produk.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Produk & Layanan</a
           >
           <a
             href="berita.html"
+            data-navbar-link
             class="text-sm font-500 hover:text-opacity-80"
             style="color: var(--light-text)"
             >Berita</a
           >
-          <a href="kontak.html" class="btn-primary text-xs">Hubungi Kami</a>
+          <a href="kontak.html" class="btn-primary text-xs" data-ripple
+            >Hubungi Kami</a
+          >
         </div>
 
-        <button class="md:hidden" style="color: var(--primary)">
+        <button
+          class="md:hidden"
+          style="color: var(--primary)"
+          data-navbar-toggle
+          aria-expanded="false"
+        >
           <svg
             class="w-6 h-6"
             fill="none"
@@ -120,6 +194,41 @@
             ></path>
           </svg>
         </button>
+
+        <!-- Add mobile menu -->
+        <div data-navbar-menu class="md:hidden">
+          <a
+            href="index.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--primary)"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Tentang Kami</a
+          >
+          <a
+            href="produk.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Produk & Layanan</a
+          >
+          <a
+            href="berita.html"
+            data-navbar-link
+            class="text-sm font-500"
+            style="color: var(--light-text)"
+            >Berita</a
+          >
+          <a href="kontak.html" class="btn-primary text-xs inline-block"
+            >Hubungi Kami</a
+          >
+        </div>
       </div>
     </nav>
 
@@ -132,7 +241,7 @@
     >
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+          <div data-animate>
             <h1
               class="text-5xl md:text-6xl font-bold mb-6 leading-tight"
               style="color: var(--dark-text)"
@@ -149,11 +258,13 @@
               Anda terlindungi sepenuhnya.
             </p>
             <div class="flex gap-4 flex-wrap">
-              <button class="btn-primary">Ajukan Gadai Sekarang</button>
+              <button class="btn-primary" data-ripple>
+                Ajukan Gadai Sekarang
+              </button>
               <button class="btn-outline">Pelajari Lebih Lanjut</button>
             </div>
           </div>
-          <div class="hidden md:block">
+          <div class="hidden md:block" data-animate>
             <div class="relative">
               <div
                 class="w-full h-96 rounded-2xl flex items-center justify-center"
@@ -184,7 +295,7 @@
     <!-- Features Section -->
     <section class="py-20 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-animate>
           <h2 class="text-4xl font-bold mb-4" style="color: var(--dark-text)">
             Mengapa Memilih Kami?
           </h2>
@@ -196,6 +307,7 @@
         <div class="grid md:grid-cols-3 gap-8">
           <div
             class="p-8 rounded-xl"
+            data-animate
             style="
               background-color: white;
               border: 1px solid rgba(10, 102, 100, 0.1);
@@ -222,6 +334,7 @@
 
           <div
             class="p-8 rounded-xl"
+            data-animate
             style="
               background-color: white;
               border: 1px solid rgba(10, 102, 100, 0.1);
@@ -251,6 +364,7 @@
 
           <div
             class="p-8 rounded-xl"
+            data-animate
             style="
               background-color: white;
               border: 1px solid rgba(10, 102, 100, 0.1);
@@ -281,7 +395,7 @@
     <!-- Products Section -->
     <section class="py-20 px-6" style="background-color: var(--light-bg)">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-animate>
           <h2 class="text-4xl font-bold mb-4" style="color: var(--dark-text)">
             Layanan Kami
           </h2>
@@ -293,6 +407,7 @@
         <div class="grid md:grid-cols-2 gap-12">
           <div
             class="rounded-2xl p-8 flex flex-col items-center text-center"
+            data-animate
             style="background: white; border: 2px solid var(--accent)"
           >
             <div
@@ -323,13 +438,14 @@
               bersertifikat. Dapatkan dana tunai hingga 100 juta rupiah dalam
               hitungan menit.
             </p>
-            <a href="produk.html" class="btn-primary text-sm"
+            <a href="produk.html" class="btn-primary text-sm" data-ripple
               >Pelajari Lebih Lanjut</a
             >
           </div>
 
           <div
             class="rounded-2xl p-8 flex flex-col items-center text-center"
+            data-animate
             style="background: white; border: 2px solid var(--accent)"
           >
             <div
@@ -360,7 +476,7 @@
               perangkat akan kami periksa oleh teknisi berpengalaman untuk
               penilaian terbaik.
             </p>
-            <a href="produk.html" class="btn-primary text-sm"
+            <a href="produk.html" class="btn-primary text-sm" data-ripple
               >Pelajari Lebih Lanjut</a
             >
           </div>
@@ -371,7 +487,7 @@
     <!-- Testimonials Section -->
     <section class="py-20 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-animate>
           <h2 class="text-4xl font-bold mb-4" style="color: var(--dark-text)">
             Kepuasan Pelanggan
           </h2>
@@ -383,6 +499,7 @@
         <div class="grid md:grid-cols-3 gap-8">
           <div
             class="p-8 rounded-xl"
+            data-animate
             style="
               background-color: var(--light-bg);
               border-left: 4px solid var(--primary);
@@ -442,6 +559,7 @@
 
           <div
             class="p-8 rounded-xl"
+            data-animate
             style="
               background-color: var(--light-bg);
               border-left: 4px solid var(--primary);
@@ -501,6 +619,7 @@
 
           <div
             class="p-8 rounded-xl"
+            data-animate
             style="
               background-color: var(--light-bg);
               border-left: 4px solid var(--primary);
@@ -566,21 +685,20 @@
       class="py-16 px-6"
       style="background: linear-gradient(135deg, var(--primary), var(--accent))"
     >
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-4 text-white">
-          Siap Mendapatkan Dana Tunai?
+      <div class="max-w-7xl mx-auto text-center" data-animate>
+        <h2 class="text-4xl font-bold text-white mb-6">
+          Siap Untuk Solusi Gadai Terbaik?
         </h2>
-        <p class="text-white text-lg mb-8 opacity-90">
-          Ajukan gadai sekarang dan dapatkan pencairan dana dalam hitungan menit
+        <p class="text-xl text-white opacity-90 mb-8">
+          Hubungi tim profesional kami sekarang dan dapatkan konsultasi gratis
         </p>
-        <button
-          class="px-8 py-3 bg-white text-lg font-bold rounded-lg"
-          style="color: var(--primary); transition: all 0.3s ease"
-          onmouseover="this.style.transform='translateY(-2px)'"
-          onmouseout="this.style.transform='translateY(0)'"
+        <a
+          href="kontak.html"
+          class="inline-block btn-primary bg-white"
+          style="color: var(--primary)"
+          data-ripple
+          >Hubungi Kami Sekarang</a
         >
-          Hubungi Kami Sekarang
-        </button>
       </div>
     </section>
 
@@ -678,5 +796,11 @@
         </p>
       </div>
     </footer>
+
+    <!-- Add script references -->
+    <script src="public/js/navbar.js"></script>
+    <script src="public/js/animations.js"></script>
+    <script src="public/js/form-validation.js"></script>
+    <script src="public/js/smooth-transitions.js"></script>
   </body>
 </html>
